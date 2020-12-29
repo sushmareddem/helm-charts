@@ -39,8 +39,7 @@ spec:
   {{- end }}
 {{- end }}
 {{- if .Values.prometheus.prometheusSpec.externalLabels }}
-  externalLabels:
-{{ toYaml .Values.prometheus.prometheusSpec.externalLabels | indent 4}}
+  externalLabels: "{{ tpl .Values.prometheus.prometheusSpec.externalLabels . }}"
 {{- end }}
 {{- if .Values.prometheus.prometheusSpec.prometheusExternalLabelNameClear }}
   prometheusExternalLabelName: ""
